@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <button><a href="/private">private file</a></button> 
+    <% if(user) {%>
+    <li>Welcome ,<%= user.email %></li>
+    <h1>Welcome to the Home Page</h1>
+    <div class="button-container">
+        <button onclick="window.location.href='/logout'">logout</button>
+        <% } else { %>
+        <button onclick="window.location.href='/login'">Login</button>
+        <button onclick="window.location.href='/signup'">Signup</button>
+        <% } %>
+        <!-- <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form> -->
+    </div>
+
+    <script>
+        // Example: Hide buttons based on authentication (add your auth logic here)
+        // For demo, all buttons are shown; you should toggle based on user state
+        // e.g., if (userLoggedIn) { hide login/signup, show logout } else { hide logout }
+    </script>
+</body>
+</html>
